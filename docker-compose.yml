@@ -1,0 +1,7 @@
+version: "2"
+services:
+  libremesh_buildroot:
+    image: "libremesh/openwrt_buildroot_v22.03.5:0.0.1"
+    build:
+      context: ./
+      dockerfile: Dockerfile
