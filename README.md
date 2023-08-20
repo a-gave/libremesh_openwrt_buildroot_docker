@@ -47,7 +47,7 @@ after building the toolchain: 4.18GB
 after compiling target and packages: 11.2GB
 
 #### 2. using Dockerfile.ext-toolchain
-after downloading the external toolchain: 4.63GB
+after downloading the external toolchain: 4.63GB       
 after compiling target and packages: 6.56GB       
 
 
