@@ -38,17 +38,17 @@ The size of the produced docker images, comparing ath79/generic are:
 Comparing the produced docker images for target `ath79/generic`.
 
 #### common
-from debian:bullseye-slim: 80.5MB
-after installing required system tools: 868MB
+from debian:bullseye-slim: 80.5MB      
+after installing required system tools: 868MB      
 after cloning openwrt and installing feeds: 1.54GB
 
 #### 1. using default Dockerfile
-after building the toolchain: 4.18GB
+after building the toolchain: 4.18GB      
 after compiling target and packages: 11.2GB
 
 #### 2. using Dockerfile.ext-toolchain
 after downloading the external toolchain: 4.63GB
-after compiling target and packages: 6.56GB
+after compiling target and packages: 6.56GB       
 
 
 ## References
