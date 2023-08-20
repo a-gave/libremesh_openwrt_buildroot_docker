@@ -1,0 +1,14 @@
+---
+- name: "Build docker images {{ arch.name }} {{ openwrt.version }}"
+  shell: "docker build . \
+    --build-arg OPENWRT_VERSION={{ openwrt.version }} \
+    --build-arg ARCH_TARGET={{ arch.arch_target.split('/')[0] }} \
+    --build-arg ARCH_SUBTARGET={{ arch.arch_target.split('/')[1] }} \
+    --build-arg TARGET={{ target.split('/')[0] }} \
+    --build-arg SUBTARGET={{ target.split('/')[1] }} \
+    --file {{ dockerfile }} \
+    --tag libremesh/openwrt-buildroot:{{ target.split('/')[0] }}-{{ target.split('/')[1] }}-v{{ openwrt.version }}{% if docker_extra_image_name %}-{{ docker_extra_image_name }}{% endif %} "
+  loop: "{{ arch.targets }}"
+  loop_control:
+    loop_var: target
+

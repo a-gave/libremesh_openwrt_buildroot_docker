@@ -1,0 +1,190 @@
+openwrt:
+  version: 22.03.5
+  archs:
+    - name: aarch64_cortex-a53
+      arch_target: bcm27xx/bcm2710
+      targets:
+       - bcm27xx/bcm2710
+       - bcm4908/generic
+       - mvebu/cortexa53
+       - mediatek/mt7622
+       - sunxi/cortexa53
+
+    - name: aarch64_cortex-a72
+      arch_target: bcm27xx/bcm2711
+      targets:
+       - bcm27xx/bcm2711
+       - mvebu/cortexa72
+
+    - name: aarch64_generic
+      arch_target: rockchip/armv8
+      targets:
+       - layerscape/armv8_64b
+       - rockchip/armv8
+
+    - name: arc_archs
+      arch_target: archs38/generic
+      targets:
+       - archs38/generic
+
+    - name: arm_arm1176jzf-s_vfp
+      arch_target: bcm27xx/bcm2708
+      targets:
+       - bcm27xx/bcm2708
+
+    - name: arm_arm926ej-s
+      arch_target: at91/sam9x
+      targets:
+       - at91/sam9x
+
+    - name: arm_cortex-a5_vfpv4
+      arch_target: at91/sama5
+      targets:
+       - at91/sama5
+
+    - name: arm_cortex-a7
+      arch_target: mediatek/mt7629
+      targets:
+       - mediatek/mt7629
+
+    - name: arm_cortex-a7_neon-vfpv4
+      arch_target: ipq40xx/generic
+      targets:
+       - bcm27xx/bcm2709
+       - ipq40xx/generic
+       - ipq40xx/mikrotik
+       - layerscape/armv7
+       - mediatek/mt7623
+       - sunxi/cortexa7
+
+    - name: arm_cortex-a7_vfpv4
+      arch_target: at91/sama7
+      targets:
+       - at91/sama7
+
+    - name: arm_cortex-a8_vfpv3
+      arch_target: omap/generic
+      targets:
+       - omap/generic
+       - sunxi/cortexa8
+
+    - name: arm_cortex-a9
+      arch_target: bcm53xx/generic
+      targets:
+       - bcm53xx/generic
+       - zynq/generic
+
+    - name: arm_cortex-a9
+      arch_target: imx/cortexa9
+      targets:
+       - imx/cortexa9
+
+    - name: arm_cortex-a9_vfpv3-d16
+      arch_target: mvebu/cortexa9
+      targets:
+       - mvebu/cortexa9
+       - tegra/generic
+
+    - name: arm_cortex-a15_neon-vfpv4
+      arch_target: ipq806x/generic
+      targets:
+       - ipq806x/generic
+
+    - name: arm_fa526
+      arch_target: gemini/generic
+      targets:
+       - gemini/generic
+
+    - name: arm_mpcore
+      arch_target: oxnas/ox820
+      targets:
+       - oxnas/ox820
+
+    - name: arm_xscale
+      arch_target: kirkwood/generic
+      targets:
+       - kirkwood/generic
+
+    - name: i386_pentium-mmx
+      arch_target: x86/geode
+      targets:
+       - x86/geode
+       - x86/legacy
+
+    - name: i386_pentium4
+      arch_target: x86/generic
+      targets:
+       - x86/generic
+
+    - name: mips_24kc
+      arch_target: ath79/generic
+      targets:
+       - ath79/generic
+       - ath79/mikrotik
+       - ath79/nand
+       - ath79/tiny
+       - lantiq/xrx200
+       - lantiq/xway
+       - realtek/rtl839x
+       - realtek/rtl930x
+
+    - name: mips_4kec
+      arch_target: realtek/rtl838x
+      targets:
+        - realtek/rtl838x
+
+    - name: mips_mips32
+      arch_target: bcm63xx/generic
+      targets:
+       - ath25/generic
+       - bcm63xx/generic
+       - bcm63xx/smp
+
+    - name: mips64_octeonplus
+      arch_target: octeon/generic
+      targets:
+       - octeon/generic
+
+    - name: mipsel_24kc
+      arch_target: ramips/mt7620
+      targets:
+        - ramips/mt76x8
+        - ramips/mt7620
+        - ramips/mt7621
+        - ramips/rt288x
+        - ramips/rt305x
+
+    - name: mipsel_24kc_24kf
+      arch_target: pistachio/generic
+      targets:
+       - pistachio/generic
+
+    - name: mipsel_74kc
+      arch_target: ramips/rt3883
+      targets:
+       - bcm47xx/mips74k
+       - ramips/rt3883
+
+    - name: mipsel_mips32
+      arch_target: bcm47xx/generic
+      targets:
+        - bcm47xx/generic
+        - bcm47xx/legacy
+
+    - name: powerpc_464fp
+      arch_target: apm821xx/nand
+      targets:
+       - apm821xx/nand
+       - apm821xx/sata
+
+    - name: powerpc_8540
+      arch_target: mpc85xx/p1010
+      targets:
+       - mpc85xx/p1010
+       - mpc85xx/p1020
+       - mpc85xx/p2020
+
+    - name: x86_64
+      arch_target: x86/64
+      targets:
+        - x86/64

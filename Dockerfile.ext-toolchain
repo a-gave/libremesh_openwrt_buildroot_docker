@@ -42,7 +42,7 @@ USER $USER
 ARG OPENWRT_VERSION
 ENV OPENWRT_VERSION=${OPENWRT_VERSION:-22.03.5}
 
-RUN git clone -b $OPENWRT_VERSION --single-branch https://git.openwrt.org/openwrt/openwrt.git /builder \
+RUN git clone -b v$OPENWRT_VERSION --single-branch https://git.openwrt.org/openwrt/openwrt.git /builder \
   && cd /builder \
   && cp feeds.conf.default feeds.conf \
   && echo " \n\
@@ -58,29 +58,17 @@ ENV ARCH_TARGET ${ARCH_TARGET:-ath79}
 ARG ARCH_SUBTARGET
 ENV ARCH_SUBTARGET ${ARCH_SUBTARGET:-generic}
 
-RUN touch .config \
-  && echo " \n\
-CONFIG_DEVEL=y \n\
-CONFIG_ALL_KMODS=y \n\
-CONFIG_ALL_NONSHARED=y \n\
-CONFIG_TARGET_${ARCH_TARGET}=y \n\
-CONFIG_TARGET_${ARCH_TARGET}_${ARCH_SUBTARGET}=y \n\
-CONFIG_TARGET_SUBTARGET=${ARCH_SUBTARGET} \n\
-CONFIG_TARGET_MULTI_PROFILE=y \n\
-CONFIG_TARGET_PER_DEVICE_ROOTFS=y " >> .config \
-  && make defconfig 
+# Download and use external toolchain
+RUN wget -nd --no-parent -r https://downloads.openwrt.org/releases/$OPENWRT_VERSION/targets/$ARCH_TARGET/$ARCH_SUBTARGET/ -A 'openwrt-toolchain*.tar.xz' 
 
-# compile and clean toolchain, clean subtarget files
-RUN make -j$(nproc) download \
-  && make -j$(nproc) prepare \
-  && find build_dir/toolchain* ! -name '.built*' ! -name '.configured*' ! -name '.prepared*' -type f -exec rm -f {} + \
-  && find build_dir/toolchain* -type d -empty -delete \
-  && find build_dir/host/ ! -name '.built*' ! -name '.configured*' ! -name '.prepared*' -type f -exec rm -f {} + \
-  && find build_dir/host/ -type d -empty -delete \ 
-  && rm -rf build_dir/target*/ \
-  && rm -rf staging_dir/target*/
+RUN mv openwrt-toolchain* ext_toolchain.tar.xz \
+  && tar -xvf ext_toolchain.tar.xz \
+  && rm -rf ext_toolchain.tar.xz \
+  && mv openwrt-toolchain* ext_toolchain 
 
-# target
+RUN EXT_TOOLCHAIN_NAME=$(ls ext_toolchain/ | grep toolchain) \
+  && ./scripts/ext-toolchain.sh --toolchain /builder/ext_toolchain/$EXT_TOOLCHAIN_NAME --config $ARCH_TARGET/$ARCH_SUBTARGET 
+
 ARG TARGET
 ENV TARGET ${TARGET:-ath79} 
 ARG SUBTARGET
@@ -98,5 +86,5 @@ CONFIG_TARGET_PER_DEVICE_ROOTFS=y " >> .config \
   && echo '\n# CONFIG_PACKAGE_dnsmasq is not set\n# CONFIG_PACKAGE_odhcpd-ipv6only is not set\n# CONFIG_PACKAGE_ppp is not set\n# CONFIG_PACKAGE_ppp-mod-pppoe is not set\n\
 CONFIG_PACKAGE_profile-libremesh-suggested-packages=y' >> .config \
   && make -j$(nproc) defconfig \
-  && make -j$(nproc) \
+  && make -j$(nproc)
 

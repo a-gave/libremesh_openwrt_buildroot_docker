@@ -1,0 +1,28 @@
+---
+- name: Build docker images
+  hosts: localhost
+  gather_facts: no
+  vars_files:
+    - ../targets_v23.05.0-rc2.yml
+  vars:
+    dockerfile: ./Dockerfile.ext-toolchain
+    docker_extra_image_name: ext-toolchain
+    build_script_filename: "../build-docker-images-v{{ openwrt.version }}{% if docker_extra_image_name %}-{{ docker_extra_image_name }}{% endif %}.sh"
+  tasks:
+    - name: init
+      lineinfile:
+        path: "{{ build_script_filename }}"
+        line: "#!/bin/bash"
+        create: yes
+
+    - name: chmod
+      file:
+        path: "{{ build_script_filename}}"
+        mode: 0755
+
+    - name: append
+      include_tasks: _append_single_target.yml
+      loop: "{{ openwrt.archs }}"
+      loop_control:
+        loop_var: arch
+
