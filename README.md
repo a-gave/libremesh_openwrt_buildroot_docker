@@ -31,7 +31,7 @@ The `Dockerfile.ext-toolchain` use an official toolchain from https://downloads.
 
 The size of the produced docker images, comparing ath79/generic are:
 - around 11.2GB for the default
-- around 6.56GB using an external toolchain
+- around 6.56GB using an external toolchain (broken)
 
 
 ### Details about image sizes
@@ -46,7 +46,7 @@ after cloning openwrt and installing feeds: 1.54GB
 after building the toolchain: 4.18GB      
 after compiling target and packages: 11.2GB
 
-#### 2. using Dockerfile.ext-toolchain
+#### 2. using Dockerfile.ext-toolchain (broken)
 after downloading the external toolchain: 4.63GB       
 after compiling target and packages: 6.56GB       
 

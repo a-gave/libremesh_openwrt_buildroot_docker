@@ -95,8 +95,12 @@ CONFIG_TARGET_${TARGET}_${SUBTARGET}=y \n\
 CONFIG_TARGET_MULTI_PROFILE=y \n\
 CONFIG_TARGET_PER_DEVICE_ROOTFS=y " >> .config \
   && make defconfig \
-  && echo '\n# CONFIG_PACKAGE_dnsmasq is not set\n# CONFIG_PACKAGE_odhcpd-ipv6only is not set\n# CONFIG_PACKAGE_ppp is not set\n# CONFIG_PACKAGE_ppp-mod-pppoe is not set\n\
-CONFIG_PACKAGE_profile-libremesh-suggested-packages=y' >> .config \
-  && make -j$(nproc) defconfig \
-  && make -j$(nproc) \
+  && echo "\n# \
+CONFIG_PACKAGE_dnsmasq is not set \n# \
+CONFIG_PACKAGE_odhcpd-ipv6only is not set \n# \
+CONFIG_PACKAGE_ppp is not set \n# \ 
+CONFIG_PACKAGE_ppp-mod-pppoe is not set \n\
+CONFIG_PACKAGE_profile-libremesh-suggested-packages=y" >> .config \
+  && make defconfig \
+  && make -j$(nproc)
 
