@@ -1,0 +1,43 @@
+diff --git a/config/Config-devel.in b/config/Config-devel.in
+index cbac91c09d..4d338ea26b 100644
+--- a/config/Config-devel.in
++++ b/config/Config-devel.in
+@@ -62,6 +62,12 @@ menuconfig DEVEL
+ 		  Compile all host host tools even if not needed. This is needed to prepare a
+ 		  universal precompiled host tools archive to use in another buildroot.
+ 
++	config EXTERNAL_TOOLS
++		bool "Use external tools" if DEVEL
++		help
++		  If enabled, the buildroot will compile using prebuilt tools instead of
++		  compiling them.
++
+ 	config BUILD_SUFFIX
+ 		string "Build suffix to append to the target BUILD_DIR variable" if DEVEL
+ 		default ""
+diff --git a/scripts/ext-tools.sh b/scripts/ext-tools.sh
+index b58296be10..3fe7c9ce4a 100755
+--- a/scripts/ext-tools.sh
++++ b/scripts/ext-tools.sh
+@@ -36,6 +36,8 @@ install_prebuilt_tools() {
+ 
+ 	refresh_prebuilt_tools
+ 
++	echo "CONFIG_EXTERNAL_TOOLS=y" >> .config && make defconfig
++
+ 	return 0
+ }
+ 
+diff --git a/tools/Makefile b/tools/Makefile
+index b16c5d9c5b..6401f54f3e 100644
+--- a/tools/Makefile
++++ b/tools/Makefile
+@@ -224,6 +224,8 @@ $(curdir)/ := .config prereq
+ $(curdir)/install: $(curdir)/compile
+ 
+ tools_enabled = $(foreach tool,$(sort $(tools-y) $(tools-)),$(if $(filter $(tool),$(tools-y)),y,n))
++ifeq ($(CONFIG_EXTERNAL_TOOLS),)
+ $(eval $(call stampfile,$(curdir),tools,compile,,_$(subst $(space),,$(tools_enabled)),$(STAGING_DIR_HOST)))
++endif
+ $(eval $(call stampfile,$(curdir),tools,check,$(TMP_DIR)/.build,,$(STAGING_DIR_HOST)))
+ $(eval $(call subdir,$(curdir)))

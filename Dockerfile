@@ -1,4 +1,4 @@
-FROM debian:bullseye-slim
+FROM debian:bullseye-slim as buildroot_base
 
 RUN apt update -y && apt install -y \
   build-essential \
@@ -29,7 +29,8 @@ RUN apt update -y && apt install -y \
   time \
   xsltproc \
   zlib1g-dev \
-  qemu-utils
+  qemu-utils \
+  && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 ENV USER=builder
 
@@ -39,68 +40,98 @@ RUN adduser $USER \
 
 USER $USER
 
-ARG OPENWRT_VERSION
-ENV OPENWRT_VERSION=${OPENWRT_VERSION:-22.03.5}
+FROM buildroot_base as buildroot_setup
 
-RUN git clone -b $OPENWRT_VERSION --single-branch https://git.openwrt.org/openwrt/openwrt.git /builder \
+ARG OPENWRT_VERSION
+ENV OPENWRT_VERSION=${OPENWRT_VERSION:-23.05.5}
+
+# speed up and save space:
+# 0- download openwrt archive instead of git cloning
+# 1- remove unused feed telephony
+# 2- use github for openwrt feeds
+# 3- remove histories of luci (~400MB) packages (~70MB) routing (~3MB) 
+# 4- remove openwrt feeds in feeds.conf after install
+RUN cd /tmp/ && wget https://github.com/openwrt/openwrt/archive/refs/tags/v${OPENWRT_VERSION}.tar.gz \
+  && tar -xvf v${OPENWRT_VERSION}.tar.gz && rm v${OPENWRT_VERSION}.tar.gz \
+  && mv openwrt-${OPENWRT_VERSION}/* /builder \
   && cd /builder \
   && cp feeds.conf.default feeds.conf \
+  && sed -i 's|\(.*\)telephony\(.*\)||' feeds.conf \
   && echo " \n\
 src-git libremesh https://github.com/libremesh/lime-packages.git;master \n\
 src-git profiles https://github.com/libremesh/network-profiles.git" >> feeds.conf \
+  && sed -i 's|git.openwrt.org/project|github.com/openwrt|g' feeds.conf \
+  && sed -i 's|git.openwrt.org/feed|github.com/openwrt|g' feeds.conf \
   && ./scripts/feeds update -a \
-  && ./scripts/feeds install -a 
+  && ./scripts/feeds install -a \
+  && rm -rf feeds/luci/.git feeds/packages/.git feeds/routing/.git \
+  && sed -i 's|\(.*\)github.com/openwrt\(.*\)||g' feeds.conf
 
 WORKDIR /builder
 
-ARG ARCH_TARGET
-ENV ARCH_TARGET ${ARCH_TARGET:-ath79}
-ARG ARCH_SUBTARGET
-ENV ARCH_SUBTARGET ${ARCH_SUBTARGET:-generic}
+FROM buildroot_setup as buildroot_patch
 
-RUN touch .config \
-  && echo " \n\
-CONFIG_DEVEL=y \n\
-CONFIG_ALL_KMODS=y \n\
-CONFIG_ALL_NONSHARED=y \n\
-CONFIG_TARGET_${ARCH_TARGET}=y \n\
-CONFIG_TARGET_${ARCH_TARGET}_${ARCH_SUBTARGET}=y \n\
-CONFIG_TARGET_SUBTARGET=${ARCH_SUBTARGET} \n\
-CONFIG_TARGET_MULTI_PROFILE=y \n\
-CONFIG_TARGET_PER_DEVICE_ROOTFS=y " >> .config \
-  && make defconfig 
+COPY tools.patch ./
 
-# compile and clean toolchain, clean subtarget files
-RUN make -j$(nproc) download \
-  && make -j$(nproc) prepare \
-  && find build_dir/toolchain* ! -name '.built*' ! -name '.configured*' ! -name '.prepared*' -type f -exec rm -f {} + \
-  && find build_dir/toolchain* -type d -empty -delete \
-  && find build_dir/host/ ! -name '.built*' ! -name '.configured*' ! -name '.prepared*' -type f -exec rm -f {} + \
-  && find build_dir/host/ -type d -empty -delete \ 
-  && rm -rf build_dir/target*/ \
-  && rm -rf staging_dir/target*/
+RUN git apply tools.patch
 
-# target
+FROM buildroot_patch as buildroot_download
+
+# download kernel (121MB) and default_packages (59MB)
+RUN make defconfig \
+  && make target/linux/download \
+  && make package/download \
+  && rm -rf .config staging_dir/target* staging_dir/toolchain*
+
+FROM buildroot_download as buildroot_prepare
+
 ARG TARGET
-ENV TARGET ${TARGET:-ath79} 
+ENV TARGET ${TARGET:-x86} 
 ARG SUBTARGET
-ENV SUBTARGET ${SUBTARGET:-generic}
+ENV SUBTARGET ${SUBTARGET:-64}
 
-RUN echo " \n\
-CONFIG_DEVEL=y \n\
-CONFIG_ALL_KMODS=y \n\
-CONFIG_ALL_NONSHARED=y \n\
-CONFIG_TARGET_${TARGET}=y \n\
-CONFIG_TARGET_${TARGET}_${SUBTARGET}=y \n\
-CONFIG_TARGET_MULTI_PROFILE=y \n\
-CONFIG_TARGET_PER_DEVICE_ROOTFS=y " >> .config \
-  && make defconfig \
-  && echo "\n# \
-CONFIG_PACKAGE_dnsmasq is not set \n# \
-CONFIG_PACKAGE_odhcpd-ipv6only is not set \n# \
-CONFIG_PACKAGE_ppp is not set \n# \ 
-CONFIG_PACKAGE_ppp-mod-pppoe is not set \n\
-CONFIG_PACKAGE_profile-libremesh-suggested-packages=y" >> .config \
-  && make defconfig \
-  && make -j$(nproc)
+# tools and toolchain
+RUN wget -nd --no-parent \
+    -r https://downloads.openwrt.org/releases/$OPENWRT_VERSION/targets/$TARGET/$SUBTARGET/ \
+    -A 'openwrt-sdk*.tar.xz' \
+  && tar -xvf openwrt-sdk*.tar.xz \
+  && rm -rf staging_dir/host \
+  && mv openwrt-sdk*/staging_dir/host staging_dir/ \
+  && echo "CONFIG_EXTERNAL_TOOLS=y" >> .config \
+  && mv openwrt-sdk*/staging_dir/toolchain* staging_dir/ \
+  && rm -rf openwrt-sdk* \
+  && EXT_TOOLCHAIN_NAME=$(ls staging_dir/ | grep toolchain) \
+  && ./scripts/ext-toolchain.sh \
+    --toolchain staging_dir/$EXT_TOOLCHAIN_NAME \
+    --overwrite-config --config $TARGET/$SUBTARGET 
 
+FROM buildroot_prepare as buildroot_first_build
+
+RUN echo "\n\
+\nCONFIG_DEVEL=y \
+\nCONFIG_ALL_KMODS=y \
+\nCONFIG_ALL_NONSHARED=y \
+\nCONFIG_TARGET_ROOTFS_INITRAMFS=y \
+\nCONFIG_IMAGEOPT=y \
+\nCONFIG_VERSIONOPT=y " >> .config \
+  && make defconfig \
+  && if ! grep -q DEVICE_generic .config ; \
+  then echo "\n\
+\nCONFIG_TARGET_MULTI_PROFILE=y \
+\nCONFIG_TARGET_PER_DEVICE_ROOTFS=y " >> .config; \
+  fi \
+  && echo "\n\
+\nCONFIG_KERNEL_BUILD_DOMAIN=\"buildhost\" \
+\nCONFIG_VERSION_DIST=\"LibreMesh\" \
+\nCONFIG_VERSION_NUMBER=\"$(cd feeds/libremesh && git rev-parse --short=7 HEAD)-${OPENWRT_VERSION}\" \
+\n# CONFIG_VERSION_CODE_FILENAMES is not set \
+\n# CONFIG_FEED_libremesh is not set \
+\n# CONFIG_FEED_profiles is not set \
+\n# CONFIG_PACKAGE_dnsmasq is not set \
+\n# CONFIG_PACKAGE_odhcpd-ipv6only is not set \
+\n# CONFIG_PACKAGE_ppp is not set \
+\n# CONFIG_PACKAGE_ppp-mod-pppoe is not set \
+\nCONFIG_PACKAGE_profile-libremesh-suggested-packages-tiny=y" >> .config \
+  && make defconfig \
+  && make -j$(nproc) BUILD_LOG=1 > build_log.txt 2>&1 \
+  && rm -rf /builder/bin
