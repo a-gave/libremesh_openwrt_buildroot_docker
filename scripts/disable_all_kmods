@@ -1,0 +1,12 @@
+#!/bin/bash
+
+cat << EOF >> .config
+# CONFIG_ALL_NONSHARED is not set
+# CONFIG_ALL_KMODS is not set
+EOF
+
+sed -i 's|CONFIG_PACKAGE_kmod-\(.*\)=m|#\ CONFIG_PACKAGE_kmod-\1\ is\ not\ set|g' .config
+make defconfig
+
+echo 'CONFIG_ALL_NONSHARED=y' >> .config
+make defconfig"

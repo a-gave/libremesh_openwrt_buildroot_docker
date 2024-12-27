@@ -1,0 +1,17 @@
+#!/bin/bash
+
+cat << EOF >> .config 
+CONFIG_TARGET_MULTI_PROFILE=y
+CONFIG_TARGET_PER_DEVICE_ROOTFS=y
+EOF
+
+make defconfig
+
+sed -i 's|#\ CONFIG_TARGET_\(.*\)_DEVICE_\(.*\)\ is\ not\ set|CONFIG_TARGET_\1_DEVICE_\2=y|g' .config 
+
+cat << EOF >> .config 
+CONFIG_TARGET_MULTI_PROFILE=y
+CONFIG_TARGET_PER_DEVICE_ROOTFS=y
+EOF
+
+make defconfig

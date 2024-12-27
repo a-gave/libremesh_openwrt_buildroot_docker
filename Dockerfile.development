@@ -81,7 +81,10 @@ RUN git apply tools.patch
 FROM buildroot_patch as buildroot_download
 
 # download kernel (121MB) and default_packages (59MB) and archives related to lime-packages
-RUN PACKAGES=$(grep 'Package:' feeds/libremesh.index | sed 's|Package: ||g') \
+RUN echo "\n\
+\nCONFIG_DEVEL=y \
+\nCONFIG_ALL_KMODS=y " > .config \
+  && PACKAGES=$(grep 'Package:' feeds/libremesh.index | sed 's|Package: ||g') \
   && for p in $PACKAGES; do echo "CONFIG_PACKAGE_$p=m" >> .config ; done \
   && make defconfig \
   && make target/linux/download \
@@ -107,13 +110,14 @@ RUN wget -nd --no-parent \
 
 FROM buildroot_prepare as buildroot_first_build
 
-# precompile all packages from libremesh
+# compile all packages from libremesh
 RUN PACKAGES=$(grep 'Package:' feeds/libremesh.index | sed 's|Package: ||g') \
   && for p in $PACKAGES; do echo "CONFIG_PACKAGE_$p=m" >> .config ; done 
 
 RUN echo "\n\
 \nCONFIG_DEVEL=y \
 \nCONFIG_EXTERNAL_TOOLS=y \
+\nCONFIG_ALL_KMODS=y \
 \nCONFIG_ALL_NONSHARED=y \
 \nCONFIG_TARGET_ROOTFS_INITRAMFS=y \
 \nCONFIG_IMAGEOPT=y \

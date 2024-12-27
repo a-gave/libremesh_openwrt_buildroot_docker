@@ -30,6 +30,7 @@ This example is based on a pc 4core, 16GB ram, not SSD.
 Every step depends also on network resources.
 
 **Dockerfile steps**
+[OUTDATED]
 | size      | time   | step                                  |
 | --------- | ------ | ------------------------------------- |
 | 80.5MB    |        | 0. debian:bullseye-slim               |
