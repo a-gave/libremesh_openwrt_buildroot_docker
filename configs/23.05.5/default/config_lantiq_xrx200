@@ -1,0 +1,13 @@
+# firmware-utils use custom message: [mktplinkfw2] *** error: kernel image is too big
+# CONFIG_TARGET_DEVICE_lantiq_xrx200_DEVICE_tplink_tdw8970 is not set
+# CONFIG_TARGET_DEVICE_lantiq_xrx200_DEVICE_tplink_tdw8980 is not set
+
+# autodetected failures master-ow23.05.5-7345673-20250115-default
+# CONFIG_TARGET_DEVICE_lantiq_xrx200_DEVICE_alphanetworks_asl56026 is not set
+# CONFIG_TARGET_DEVICE_lantiq_xrx200_DEVICE_arcadyan_arv7519rw22 is not set
+# CONFIG_TARGET_DEVICE_lantiq_xrx200_DEVICE_arcadyan_vg3503j is not set
+# CONFIG_TARGET_DEVICE_lantiq_xrx200_DEVICE_arcadyan_vgv7510kw22-brn is not set
+# CONFIG_TARGET_DEVICE_lantiq_xrx200_DEVICE_arcadyan_vgv7519-brn is not set
+# CONFIG_TARGET_DEVICE_lantiq_xrx200_DEVICE_lantiq_easy80920-nor is not set
+# CONFIG_TARGET_DEVICE_lantiq_xrx200_DEVICE_netgear_dm200 is not set
+# CONFIG_TARGET_DEVICE_lantiq_xrx200_DEVICE_zyxel_p-2812hnu-f3 is not set

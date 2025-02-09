@@ -1,36 +1,44 @@
-FROM debian:bullseye-slim as buildroot_base
+FROM debian:11-slim
 
-RUN apt update -y && apt install -y \
-  build-essential \
-  ccache \
-  ecj \
-  fastjar \ 
-  file \
-  g++ \
-  gawk \
-  gettext \
-  git \
-  java-propose-classpath \
-  libelf-dev \
-  libncurses5-dev \
-  libncursesw5-dev \
-  libssl-dev \
-  python \
-  python2.7-dev \
-  python3 \
-  unzip \
-  wget \
-  python3-distutils-extra \
-  python3-setuptools \
-  python3-dev \
-  rsync \
-  subversion \
-  swig \
-  time \
-  xsltproc \
-  zlib1g-dev \
-  qemu-utils \
-  && apt-get clean && rm -rf /var/lib/apt/lists/*
+ARG DEBIAN_FRONTEND=noninteractive
+
+USER root
+
+RUN \
+	apt-get update && \
+	apt-get install -y --no-install-recommends \
+		build-essential \
+		ccache \
+		curl \
+		file \
+		gawk \
+		g++-multilib \
+		gcc-multilib \
+		genisoimage \
+		git-core \
+		gosu \
+		libdw-dev \
+		libelf-dev \
+		libncurses5-dev \
+		locales \
+		pv \
+		pwgen \
+		python3 \
+		python3-venv \
+		python3-pip \
+		python3-pyelftools \
+		python3-cryptography \
+		qemu-utils \
+		rsync \
+		signify-openbsd \
+		subversion \
+		swig \
+		unzip \
+		wget \
+    zstd && \
+	apt-get clean && \
+	rm -rf /var/lib/apt/lists/* && \
+	localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
 
 ENV USER=builder
 
@@ -40,88 +48,84 @@ RUN adduser $USER \
 
 USER $USER
 
-FROM buildroot_base as buildroot_setup
-
 ARG OPENWRT_VERSION
 ENV OPENWRT_VERSION=${OPENWRT_VERSION:-23.05.5}
 
-# speed up and save space:
-# 0- download openwrt archive instead of git cloning
-# 1- remove unused feed telephony
-# 2- use github for openwrt feeds
-# 3- remove histories of luci (~400MB) packages (~70MB) routing (~3MB) 
-# 4- remove openwrt feeds in feeds.conf after install
 RUN cd /tmp/ && wget https://github.com/openwrt/openwrt/archive/refs/tags/v${OPENWRT_VERSION}.tar.gz \
-  && tar -xvf v${OPENWRT_VERSION}.tar.gz && rm v${OPENWRT_VERSION}.tar.gz \
-  && mv openwrt-${OPENWRT_VERSION}/* /builder 
+  && tar -xvf v${OPENWRT_VERSION}.tar.gz \
+  && mv openwrt-${OPENWRT_VERSION}/* /builder \
+  && rm -rf /tmp/*
 
 WORKDIR /builder
 
+COPY scripts_feeds.patch tools.patch ./
+
+RUN git apply scripts_feeds.patch \
+  && git apply tools.patch
+
 RUN cp feeds.conf.default feeds.conf \
-  && sed -i 's|\(.*\)telephony\(.*\)||' feeds.conf \
-  && sed -i 's|git.openwrt.org/project|github.com/openwrt|g' feeds.conf \
-  && sed -i 's|git.openwrt.org/feed|github.com/openwrt|g' feeds.conf \
+  && sed -i '/.*telephony.*/d' feeds.conf \
+  && sed -i 's/git.openwrt.org\/\(project\|feed\)/github.com\/openwrt/g' feeds.conf \
   && ./scripts/feeds update -a \
-  && ./scripts/feeds install -a \
-  && rm -rf feeds/luci/.git* feeds/packages/.git* feeds/routing/.git*
+  && ./scripts/feeds install -a
 
 RUN echo " \n\
 src-git libremesh https://github.com/libremesh/lime-packages.git;master \n\
 src-git profiles https://github.com/libremesh/network-profiles.git" >> feeds.conf \
   && ./scripts/feeds update libremesh profiles \
-  && ./scripts/feeds install -p libremesh -f -a \
-  && ./scripts/feeds install -p profiles -f -a 
+  && ./scripts/feeds install -p libremesh \
+  && ./scripts/feeds install -p profiles
 
-FROM buildroot_setup as buildroot_patch
-
-COPY tools.patch ./
-
-RUN git apply tools.patch
-
-FROM buildroot_patch as buildroot_download
+# do not build tool llvm-bpf
+RUN echo "\n\
+\nCONFIG_DEVEL=y \
+\nCONFIG_BUILD_ALL_HOST_TOOLS=y" > .config \
+  && make defconfig \
+  && sed -i 's|^.*llvm-bpf.*$||g' tools/Makefile \ 
+  && make tools/download \
+  && make -j1 tools/compile \
+  && make -j1 tools/install \
+  && rm -rf .config staging_dir/target* staging_dir/toolchain* build_dir/host* build_dir/target* dl/* bin/*
 
 # download kernel (121MB) and default_packages (59MB) and archives related to lime-packages
-RUN PACKAGES=$(grep 'Package:' feeds/libremesh.index | sed 's|Package: ||g') \
-  && for p in $PACKAGES; do echo "CONFIG_PACKAGE_$p=m" >> .config ; done \
+RUN echo "\n\
+\nCONFIG_DEVEL=y \
+\nCONFIG_ALL_KMODS=y \
+\nCONFIG_PACKAGE_profile-libremesh-suggested-packages=y" > .config \
   && make defconfig \
   && make target/linux/download \
   && make package/download \
-  && rm -rf .config staging_dir/target* staging_dir/toolchain*
-
-FROM buildroot_download as buildroot_prepare
+  && rm -rf .config staging_dir/target* staging_dir/toolchain* bin/*
 
 ARG TARGET
 ENV TARGET ${TARGET:-x86} 
 ARG SUBTARGET
 ENV SUBTARGET ${SUBTARGET:-64}
 
-# tools and toolchain
-RUN wget -nd --no-parent \
-    -r https://downloads.openwrt.org/releases/$OPENWRT_VERSION/targets/$TARGET/$SUBTARGET/ \
-    -A 'openwrt-sdk*.tar.xz' \
-  && tar -xvf openwrt-sdk*.tar.xz \
-  && rm -rf staging_dir/host \
-  && mv openwrt-sdk*/staging_dir/host staging_dir/ \
-  && mv openwrt-sdk*/staging_dir/toolchain* staging_dir/ \
-  && rm -rf openwrt-sdk* \
-
-FROM buildroot_prepare as buildroot_first_build
-
-# precompile all packages from libremesh
-RUN PACKAGES=$(grep 'Package:' feeds/libremesh.index | sed 's|Package: ||g') \
-  && for p in $PACKAGES; do echo "CONFIG_PACKAGE_$p=m" >> .config ; done 
-
 RUN echo "\n\
 \nCONFIG_DEVEL=y \
 \nCONFIG_EXTERNAL_TOOLS=y \
+\nCONFIG_TARGET_${TARGET}=y \
+\nCONFIG_TARGET_${TARGET}_${SUBTARGET}=y" >> .config \
+  && make defconfig \
+  && make -j1 toolchain/compile \
+  && find build_dir/toolchain* ! -name '.built*' -type f -exec rm -f {} + \
+  && find build_dir/toolchain* -type d -empty -delete
+
+RUN rm .config \
+  && echo "\n\
+\nCONFIG_DEVEL=y \
+\nCONFIG_EXTERNAL_TOOLS=y \
+\nCONFIG_ALL_KMODS=y \
 \nCONFIG_ALL_NONSHARED=y \
+\nCONFIG_TARGET_${TARGET}=y \
+\nCONFIG_TARGET_${TARGET}_${SUBTARGET}=y \
 \nCONFIG_TARGET_ROOTFS_INITRAMFS=y \
+\nCONFIG_TARGET_MULTI_PROFILE=y \
+\nCONFIG_TARGET_PER_DEVICE_ROOTFS=y \
 \nCONFIG_IMAGEOPT=y \
-\nCONFIG_VERSIONOPT=y " >> .config \
-  && EXT_TOOLCHAIN_NAME=$(ls staging_dir/ | grep toolchain) \
-  && ./scripts/ext-toolchain.sh \
-    --toolchain staging_dir/$EXT_TOOLCHAIN_NAME \
-    --overwrite-config --config $TARGET/$SUBTARGET \ 
+\nCONFIG_VERSIONOPT=y" >> .config \
+  && make defconfig \
   && echo "\n\
 \nCONFIG_KERNEL_BUILD_DOMAIN=\"buildhost\" \
 \nCONFIG_VERSION_DIST=\"LibreMesh\" \
@@ -133,9 +137,10 @@ RUN echo "\n\
 \n# CONFIG_PACKAGE_odhcpd-ipv6only is not set \
 \n# CONFIG_PACKAGE_ppp is not set \
 \n# CONFIG_PACKAGE_ppp-mod-pppoe is not set \
-\n# CONFIG_PACKAGE_kmod-ppp is not set \
-\n# CONFIG_PACKAGE_kmod-pppoe is not set \
-\n# CONFIG_PACKAGE_kmod-pppox is not set \
-\nCONFIG_PACKAGE_profile-libremesh-suggested-packages-tiny=y" >> .config \
-  && make defconfig \
-  && ionice -c 3 chrt --idle 0 nice -n19 make -j$(($(nproc)+1)) IGNORE_ERRORS="n m" > build_log.txt 2>&1
+\nCONFIG_PACKAGE_kmod-ppp=m \
+\nCONFIG_PACKAGE_kmod-pppoe=m \
+\nCONFIG_PACKAGE_kmod-pppox=m \
+\nCONFIG_PACKAGE_profile-libremesh-suggested-packages=y" >> .config \
+  && make defconfig
+   
+RUN make -j1 V=sc IGNORE_ERRORS="n m"

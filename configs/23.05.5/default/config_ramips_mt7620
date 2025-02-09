@@ -1,0 +1,26 @@
+# firmware-utils use custom message: 
+# [mkdniimg] *** error: stat failed
+# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_netgear_ex2700 is not set
+# [mkporayfw] *** error: stat failed 
+# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_nexx_wt3020-4m is not set
+# [mktplinkfw2] rootfs offset aligned to 0x2453844
+# [mktplinkfw2] *** error: images are too big
+# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_tplink_archer-mr200 is not set
+
+# autodetected failures master-ow23.05.5-7345673-20241231-default
+# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_dlink_dch-m225 is not set
+# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_dlink_dir-810l is not set
+# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_edimax_br-6208ac-v2 is not set
+# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_iodata_wn-ac1167gr is not set
+# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_iodata_wn-ac733gr3 is not set
+# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_phicomm_k2g is not set
+# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_phicomm_k2-v22.5 is not set
+# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_planex_cs-qr10 is not set
+# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_planex_mzk-ex300np is not set
+# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_planex_mzk-ex750np is not set
+# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_snr_cpe-w4n-mt is not set
+# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_trendnet_tew-810dr is not set
+# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_wavlink_wl-wn535k1 is not set
+# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_zbtlink_zbt-cpe102 is not set
+# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_zbtlink_zbt-wa05 is not set
+# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_zbtlink_zbt-we2026 is not set

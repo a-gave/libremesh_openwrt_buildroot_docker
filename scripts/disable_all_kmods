@@ -9,4 +9,4 @@ sed -i 's|CONFIG_PACKAGE_kmod-\(.*\)=m|#\ CONFIG_PACKAGE_kmod-\1\ is\ not\ set|g
 make defconfig
 
 echo 'CONFIG_ALL_NONSHARED=y' >> .config
-make defconfig"
+make defconfig

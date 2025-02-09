@@ -1,0 +1,19 @@
+
+#
+# Target packages
+#
+#
+CONFIG_PACKAGE_wifi-unstuck-wa=y
+
+#
+# Profiles packages
+#
+# if a device selects a package (eg. kmod-ath10k)
+# ensure that it is compiled as module
+#
+#
+CONFIG_TARGET_DEVICE_PACKAGES_mpc85xx_p1020_DEVICE_extreme-networks_ws-ap3825i="-kmod-ath10k-ct -kmod-ath10k-ct-smallbuffers kmod-ath10k -ath10k-firmware-qca988x-ct ath10k-firmware-qca988x"
+# 
+CONFIG_PACKAGE_kmod-ath10k=m
+# 
+CONFIG_PACKAGE_ath10k-firmware-qca988x=m

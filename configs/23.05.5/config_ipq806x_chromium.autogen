@@ -1,0 +1,20 @@
+
+#
+# Target packages
+#
+#
+# CONFIG_PACKAGE_kmod-ath10k-ct is not set
+# CONFIG_PACKAGE_kmod-ath10k-ct-smallbuffers is not set
+CONFIG_PACKAGE_kmod-ath10k=y
+
+#
+# Profiles packages
+#
+# if a device selects a package (eg. kmod-ath10k)
+# ensure that it is compiled as module
+#
+#
+CONFIG_TARGET_DEVICE_PACKAGES_ipq806x_chromium_DEVICE_asus_onhub="-ath10k-firmware-qca988x-ct ath10k-firmware-qca988x"
+# 
+CONFIG_PACKAGE_ath10k-firmware-qca988x=m
+CONFIG_TARGET_DEVICE_PACKAGES_ipq806x_chromium_DEVICE_tplink_onhub="-ath10k-firmware-qca988x-ct ath10k-firmware-qca988x"

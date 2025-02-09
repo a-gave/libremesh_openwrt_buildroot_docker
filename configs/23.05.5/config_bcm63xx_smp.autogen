@@ -1,0 +1,18 @@
+
+#
+# Target packages
+#
+#
+
+#
+# Profiles packages
+#
+# if a device selects a package (eg. kmod-ath10k)
+# ensure that it is compiled as module
+#
+#
+CONFIG_TARGET_DEVICE_PACKAGES_bcm63xx_smp_DEVICE_d-link_dsl-274xb-f1="wifi-unstuck-wa"
+# 
+CONFIG_PACKAGE_wifi-unstuck-wa=m
+CONFIG_TARGET_DEVICE_PACKAGES_bcm63xx_smp_DEVICE_huawei_echolife-hg556a-a="wifi-unstuck-wa"
+CONFIG_TARGET_DEVICE_PACKAGES_bcm63xx_smp_DEVICE_huawei_echolife-hg556a-b="wifi-unstuck-wa"

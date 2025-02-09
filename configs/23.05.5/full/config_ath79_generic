@@ -1,0 +1,98 @@
+# manual
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_belkin_f9j1108-v2 is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_belkin_f9k1115-v2 is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_dlink_dap-1330-a1 is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_dlink_dap-1365-a1 is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_dlink_dch-g020-a1 is not set
+
+# manual
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_dlink_dir-825-b1 is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_nec_wg800hp is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_trendnet_tew-673gru is not set
+
+# manual
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_tplink_archer-d50-v1 is not set
+
+
+
+# autodetected failures master-ow23.05.5-50a4a09-20241221
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_atheros_db120 is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_comfast_cf-e120a-v3 is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_comfast_cf-e130n-v2 is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_comfast_cf-e313ac is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_comfast_cf-e314n-v2 is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_dlink_dap-1330-a1 is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_dlink_dap-1365-a1 is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_dlink_dir-505 is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_dlink_dir-629-a1 is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_dlink_dir-825-b1 is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_elecom_wrc-300ghbk2-i is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_iodata_etg3-r is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_librerouter_librerouter-v1 is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_nec_wf1200cr is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_nec_wg1200cr is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_nec_wg800hp is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_netgear_wndap360 is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_netgear_wndr3700 is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_netgear_wnr2200-8m is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_pcs_cr3000 is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_pcs_cr5000 is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_qca_ap143-8m is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_qxwlan_e1700ac-v2-8m is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_qxwlan_e558-v2-8m is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_qxwlan_e600gac-v2-8m is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_qxwlan_e600g-v2-8m is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_qxwlan_e750a-v4-8m is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_qxwlan_e750g-v8-8m is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_sitecom_wlr-7100 is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_tplink_archer-c25-v1 is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_tplink_archer-c2-v3 is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_tplink_archer-c58-v1 is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_tplink_archer-c60-v1 is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_tplink_archer-c60-v2 is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_tplink_archer-c60-v3 is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_tplink_archer-c6-v2 is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_tplink_cpe210-v1 is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_tplink_cpe210-v2 is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_tplink_cpe210-v3 is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_tplink_cpe220-v2 is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_tplink_cpe220-v3 is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_tplink_cpe510-v1 is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_tplink_cpe510-v2 is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_tplink_cpe510-v3 is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_tplink_cpe605-v1 is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_tplink_cpe610-v1 is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_tplink_cpe610-v2 is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_tplink_re355-v1 is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_tplink_re450-v1 is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_tplink_re450-v2 is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_tplink_re450-v3 is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_tplink_re455-v1 is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_tplink_tl-wr2543-v1 is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_tplink_tl-wr902ac-v1 is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_tplink_tl-wr941hp-v1 is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_tplink_wbs210-v1 is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_tplink_wbs210-v2 is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_tplink_wbs510-v1 is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_tplink_wbs510-v2 is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_trendnet_tew-673gru is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_ubnt_bullet-m-xw is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_ubnt_edgeswitch-5xp is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_ubnt_edgeswitch-8xp is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_ubnt_nanobeam-m5-xw is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_ubnt_nanostation-loco-m-xw is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_ubnt_nanostation-m-xw is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_ubnt_powerbeam-m2-xw is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_ubnt_powerbeam-m5-xw is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_ubnt_powerbridge-m is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_ubnt_rocket-m is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_ubnt_unifi-ap is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_ubnt_unifi-ap-lr is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_wallys_dr531 is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_ziking_cpe46b is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_zyxel_nwa1100-nh is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_zyxel_nwa1121-ni is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_zyxel_nwa1123-ac is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_zyxel_nwa1123-ni is not set
+# autodetected failures master-ow23.05.5-6f307bb-20241230-full
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_fortinet_fap-221-b is not set

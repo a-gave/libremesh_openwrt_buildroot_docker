@@ -1,0 +1,7 @@
+# autodetected failures master-ow23.05.5-7345673-20241231-mini
+# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_hootoo_ht-tm05 is not set
+# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_netgear_ex2700 is not set
+# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_netgear_jwnr2010-v5 is not set
+# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_nexx_wt3020-4m is not set
+# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_ravpower_rp-wd03 is not set
+# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_vonets_var11n-300 is not set

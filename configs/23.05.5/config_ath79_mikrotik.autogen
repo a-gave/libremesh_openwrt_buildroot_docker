@@ -1,0 +1,27 @@
+
+#
+# Target packages
+#
+#
+CONFIG_PACKAGE_wifi-unstuck-wa=y
+
+#
+# Profiles packages
+#
+# if a device selects a package (eg. kmod-ath10k)
+# ensure that it is compiled as module
+#
+#
+CONFIG_TARGET_DEVICE_PACKAGES_ath79_mikrotik_DEVICE_mikrotik_routerboard-921gs-5hpacd-15s="-kmod-ath10k-ct -kmod-ath10k-ct-smallbuffers kmod-ath10k -ath10k-firmware-qca988x-ct ath10k-firmware-qca988x"
+# 
+CONFIG_PACKAGE_kmod-ath10k=m
+# 
+CONFIG_PACKAGE_ath10k-firmware-qca988x=m
+CONFIG_TARGET_DEVICE_PACKAGES_ath79_mikrotik_DEVICE_mikrotik_routerboard-922uags-5hpacd="-kmod-ath10k-ct -kmod-ath10k-ct-smallbuffers kmod-ath10k -ath10k-firmware-qca988x-ct ath10k-firmware-qca988x"
+CONFIG_TARGET_DEVICE_PACKAGES_ath79_mikrotik_DEVICE_mikrotik_routerboard-952ui-5ac2nd="-kmod-ath10k -kmod-ath10k-ct -kmod-ath10k-ct-smallbuffers kmod-ath10k-smallbuffers -ath10k-firmware-qca9887-ct ath10k-firmware-qca9887"
+# 
+CONFIG_PACKAGE_kmod-ath10k-smallbuffers=m
+# 
+CONFIG_PACKAGE_ath10k-firmware-qca9887=m
+CONFIG_TARGET_DEVICE_PACKAGES_ath79_mikrotik_DEVICE_mikrotik_routerboard-962uigs-5hact2hnt="-kmod-ath10k-ct -kmod-ath10k-ct-smallbuffers kmod-ath10k -ath10k-firmware-qca988x-ct ath10k-firmware-qca988x"
+CONFIG_TARGET_DEVICE_PACKAGES_ath79_mikrotik_DEVICE_mikrotik_routerboard-wap-g-5hact2hnd="-kmod-ath10k -kmod-ath10k-ct -kmod-ath10k-ct-smallbuffers kmod-ath10k-smallbuffers -ath10k-firmware-qca988x-ct ath10k-firmware-qca988x"

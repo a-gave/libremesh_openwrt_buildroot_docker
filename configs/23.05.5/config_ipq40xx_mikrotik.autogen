@@ -1,0 +1,24 @@
+
+#
+# Target packages
+#
+#
+# CONFIG_PACKAGE_ath10k-firmware-qca4019-ct is not set
+CONFIG_PACKAGE_ath10k-firmware-qca4019=y
+# CONFIG_PACKAGE_kmod-ath10k-ct is not set
+# CONFIG_PACKAGE_kmod-ath10k-ct-smallbuffers is not set
+CONFIG_PACKAGE_kmod-ath10k=y
+
+#
+# Profiles packages
+#
+# if a device selects a package (eg. kmod-ath10k)
+# ensure that it is compiled as module
+#
+#
+CONFIG_TARGET_DEVICE_PACKAGES_ipq40xx_mikrotik_DEVICE_mikrotik_cap-ac="-kmod-ath10k -kmod-ath10k-ct -kmod-ath10k-ct-smallbuffers kmod-ath10k-smallbuffers"
+# 
+CONFIG_PACKAGE_kmod-ath10k-smallbuffers=m
+CONFIG_TARGET_DEVICE_PACKAGES_ipq40xx_mikrotik_DEVICE_mikrotik_hap-ac2="-kmod-ath10k -kmod-ath10k-ct -kmod-ath10k-ct-smallbuffers kmod-ath10k-smallbuffers"
+CONFIG_TARGET_DEVICE_PACKAGES_ipq40xx_mikrotik_DEVICE_mikrotik_lhgg-60ad="-kmod-ath10k -ath10k-firmware-qca4019"
+CONFIG_TARGET_DEVICE_PACKAGES_ipq40xx_mikrotik_DEVICE_mikrotik_wap-ac="-kmod-ath10k -kmod-ath10k-ct -kmod-ath10k-ct-smallbuffers kmod-ath10k-smallbuffers"

@@ -1,0 +1,18 @@
+
+#
+# Target packages
+#
+#
+# CONFIG_PACKAGE_ath10k-firmware-qca4019-ct is not set
+CONFIG_PACKAGE_ath10k-firmware-qca4019=y
+# CONFIG_PACKAGE_kmod-ath10k-ct is not set
+# CONFIG_PACKAGE_kmod-ath10k-ct-smallbuffers is not set
+CONFIG_PACKAGE_kmod-ath10k=y
+
+#
+# Profiles packages
+#
+# if a device selects a package (eg. kmod-ath10k)
+# ensure that it is compiled as module
+#
+#

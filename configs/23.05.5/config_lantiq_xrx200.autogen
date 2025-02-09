@@ -1,0 +1,32 @@
+
+#
+# Target packages
+#
+#
+
+#
+# Profiles packages
+#
+# if a device selects a package (eg. kmod-ath10k)
+# ensure that it is compiled as module
+#
+#
+CONFIG_TARGET_DEVICE_PACKAGES_lantiq_xrx200_DEVICE_avm_fritz3370-rev2-hynix="wifi-unstuck-wa"
+# 
+CONFIG_PACKAGE_wifi-unstuck-wa=m
+CONFIG_TARGET_DEVICE_PACKAGES_lantiq_xrx200_DEVICE_avm_fritz3370-rev2-micron="wifi-unstuck-wa"
+CONFIG_TARGET_DEVICE_PACKAGES_lantiq_xrx200_DEVICE_avm_fritz3390="wifi-unstuck-wa"
+CONFIG_TARGET_DEVICE_PACKAGES_lantiq_xrx200_DEVICE_avm_fritz7360-v2="wifi-unstuck-wa"
+CONFIG_TARGET_DEVICE_PACKAGES_lantiq_xrx200_DEVICE_avm_fritz7360sl="wifi-unstuck-wa"
+CONFIG_TARGET_DEVICE_PACKAGES_lantiq_xrx200_DEVICE_avm_fritz7362sl="wifi-unstuck-wa"
+CONFIG_TARGET_DEVICE_PACKAGES_lantiq_xrx200_DEVICE_avm_fritz7412="wifi-unstuck-wa"
+CONFIG_TARGET_DEVICE_PACKAGES_lantiq_xrx200_DEVICE_avm_fritz7430="wifi-unstuck-wa"
+CONFIG_TARGET_DEVICE_PACKAGES_lantiq_xrx200_DEVICE_bt_homehub-v5a="wifi-unstuck-wa -kmod-ath10k-ct -kmod-ath10k-ct-smallbuffers kmod-ath10k -ath10k-firmware-qca988x-ct ath10k-firmware-qca988x"
+# 
+CONFIG_PACKAGE_kmod-ath10k=m
+# 
+CONFIG_PACKAGE_ath10k-firmware-qca988x=m
+CONFIG_TARGET_DEVICE_PACKAGES_lantiq_xrx200_DEVICE_lantiq_easy80920-nand="wifi-unstuck-wa"
+CONFIG_TARGET_DEVICE_PACKAGES_lantiq_xrx200_DEVICE_lantiq_easy80920-nor="wifi-unstuck-wa"
+CONFIG_TARGET_DEVICE_PACKAGES_lantiq_xrx200_DEVICE_tplink_tdw8970="wifi-unstuck-wa"
+CONFIG_TARGET_DEVICE_PACKAGES_lantiq_xrx200_DEVICE_tplink_tdw8980="wifi-unstuck-wa"

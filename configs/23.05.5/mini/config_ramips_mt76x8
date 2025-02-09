@@ -1,0 +1,7 @@
+# firmware-utils use custom message: 
+# [mktplinkfw2] *** error: kernel image is too big
+# CONFIG_TARGET_DEVICE_ramips_mt76x8_DEVICE_tplink_tl-wr840n-v5 is not set
+# CONFIG_TARGET_DEVICE_ramips_mt76x8_DEVICE_tplink_tl-wr841n-v14 is not set
+
+# autodetected failures master-ow23.05.5-7345673-20250115-mini
+# CONFIG_TARGET_DEVICE_ramips_mt76x8_DEVICE_tplink_re305-v1 is not set

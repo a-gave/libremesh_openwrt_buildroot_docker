@@ -1,0 +1,8 @@
+# autodetected failures master-ow23.05.5-7345673-20250115-mini
+# CONFIG_TARGET_DEVICE_lantiq_xrx200_DEVICE_arcadyan_arv7519rw22 is not set
+# CONFIG_TARGET_DEVICE_lantiq_xrx200_DEVICE_arcadyan_vgv7510kw22-brn is not set
+# CONFIG_TARGET_DEVICE_lantiq_xrx200_DEVICE_arcadyan_vgv7519-brn is not set
+# CONFIG_TARGET_DEVICE_lantiq_xrx200_DEVICE_lantiq_easy80920-nor is not set
+# CONFIG_TARGET_DEVICE_lantiq_xrx200_DEVICE_tplink_tdw8970 is not set
+# CONFIG_TARGET_DEVICE_lantiq_xrx200_DEVICE_tplink_tdw8980 is not set
+# CONFIG_TARGET_DEVICE_lantiq_xrx200_DEVICE_zyxel_p-2812hnu-f3 is not set

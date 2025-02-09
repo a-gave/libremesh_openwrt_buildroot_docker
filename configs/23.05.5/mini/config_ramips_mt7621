@@ -1,0 +1,3 @@
+# autodetected failures master-ow23.05.5-7345673-20241231-mini
+# CONFIG_TARGET_DEVICE_ramips_mt7621_DEVICE_tplink_re350-v1 is not set
+# CONFIG_TARGET_DEVICE_ramips_mt7621_DEVICE_tplink_tl-wpa8631p-v3 is not set

@@ -1,0 +1,38 @@
+
+#
+# Target packages
+#
+#
+CONFIG_PACKAGE_wifi-unstuck-wa=y
+
+#
+# Profiles packages
+#
+# if a device selects a package (eg. kmod-ath10k)
+# ensure that it is compiled as module
+#
+#
+CONFIG_TARGET_DEVICE_PACKAGES_ath79_nand_DEVICE_domywifi_dw33d="-kmod-ath10k-ct -kmod-ath10k-ct-smallbuffers kmod-ath10k -ath10k-firmware-qca988x-ct ath10k-firmware-qca988x"
+# 
+CONFIG_PACKAGE_kmod-ath10k=m
+# 
+CONFIG_PACKAGE_ath10k-firmware-qca988x=m
+CONFIG_TARGET_DEVICE_PACKAGES_ath79_nand_DEVICE_dongwon_dw02-412h-128m="-kmod-ath10k-ct -kmod-ath10k-ct-smallbuffers kmod-ath10k -ath10k-firmware-qca988x-ct ath10k-firmware-qca988x"
+CONFIG_TARGET_DEVICE_PACKAGES_ath79_nand_DEVICE_dongwon_dw02-412h-64m="-kmod-ath10k-ct -kmod-ath10k-ct-smallbuffers kmod-ath10k -ath10k-firmware-qca988x-ct ath10k-firmware-qca988x"
+CONFIG_TARGET_DEVICE_PACKAGES_ath79_nand_DEVICE_glinet_gl-ar750s-nor="-kmod-ath10k-ct -kmod-ath10k-ct-smallbuffers kmod-ath10k -ath10k-firmware-qca9887-ct ath10k-firmware-qca9887"
+# 
+CONFIG_PACKAGE_ath10k-firmware-qca9887=m
+CONFIG_TARGET_DEVICE_PACKAGES_ath79_nand_DEVICE_glinet_gl-ar750s-nor-nand="-kmod-ath10k-ct -kmod-ath10k-ct-smallbuffers kmod-ath10k -ath10k-firmware-qca9887-ct ath10k-firmware-qca9887"
+CONFIG_TARGET_DEVICE_PACKAGES_ath79_nand_DEVICE_glinet_gl-e750="-kmod-ath10k-ct -kmod-ath10k-ct-smallbuffers kmod-ath10k -ath10k-firmware-qca9887-ct ath10k-firmware-qca9887"
+CONFIG_TARGET_DEVICE_PACKAGES_ath79_nand_DEVICE_glinet_gl-x1200-nor="-kmod-ath10k-ct -kmod-ath10k-ct-smallbuffers kmod-ath10k -ath10k-firmware-qca9888-ct-htt ath10k-firmware-qca9888"
+# 
+CONFIG_PACKAGE_ath10k-firmware-qca9888=m
+CONFIG_TARGET_DEVICE_PACKAGES_ath79_nand_DEVICE_glinet_gl-x1200-nor-nand="-kmod-ath10k-ct -kmod-ath10k-ct-smallbuffers kmod-ath10k -ath10k-firmware-qca9888-ct-htt ath10k-firmware-qca9888"
+CONFIG_TARGET_DEVICE_PACKAGES_ath79_nand_DEVICE_netgear_r6100="-kmod-ath10k-ct -kmod-ath10k-ct-smallbuffers kmod-ath10k -ath10k-firmware-qca988x-ct ath10k-firmware-qca988x"
+CONFIG_TARGET_DEVICE_PACKAGES_ath79_nand_DEVICE_zte_mf281="-kmod-ath10k-ct -kmod-ath10k-ct-smallbuffers kmod-ath10k -ath10k-firmware-qca9888-ct ath10k-firmware-qca9888"
+CONFIG_TARGET_DEVICE_PACKAGES_ath79_nand_DEVICE_zte_mf282="-kmod-ath10k-ct -kmod-ath10k-ct-smallbuffers kmod-ath10k -ath10k-firmware-qca988x-ct ath10k-firmware-qca988x"
+CONFIG_TARGET_DEVICE_PACKAGES_ath79_nand_DEVICE_zte_mf286="-kmod-ath10k-ct -kmod-ath10k-ct-smallbuffers kmod-ath10k -ath10k-firmware-qca988x-ct ath10k-firmware-qca988x -ath10k-firmware-qca9888-ct ath10k-firmware-qca9888"
+CONFIG_TARGET_DEVICE_PACKAGES_ath79_nand_DEVICE_zte_mf286a="-kmod-ath10k-ct -kmod-ath10k-ct-smallbuffers kmod-ath10k -ath10k-firmware-qca9888-ct ath10k-firmware-qca9888"
+CONFIG_TARGET_DEVICE_PACKAGES_ath79_nand_DEVICE_zte_mf286r="-kmod-ath10k-ct -kmod-ath10k-ct-smallbuffers kmod-ath10k -ath10k-firmware-qca9888-ct ath10k-firmware-qca9888"
+CONFIG_TARGET_DEVICE_PACKAGES_ath79_nand_DEVICE_zyxel_emg2926_q10a="-kmod-ath10k-ct -kmod-ath10k-ct-smallbuffers kmod-ath10k -ath10k-firmware-qca988x-ct ath10k-firmware-qca988x"
+CONFIG_TARGET_DEVICE_PACKAGES_ath79_nand_DEVICE_zyxel_nbg6716="-kmod-ath10k-ct -kmod-ath10k-ct-smallbuffers kmod-ath10k -ath10k-firmware-qca988x-ct ath10k-firmware-qca988x"

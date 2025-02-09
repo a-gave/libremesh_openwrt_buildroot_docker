@@ -1,0 +1,6 @@
+# uboot compilation fails
+# CONFIG_TARGET_DEVICE_ipq40xx_generic_DEVICE_avm_fritzbox-4040 is not set
+
+# autodetected failures master-ow23.05.5-7345673-20250115-mini
+# CONFIG_TARGET_DEVICE_ipq40xx_generic_DEVICE_qcom_ap-dk01.1-c1 is not set
+# CONFIG_TARGET_DEVICE_ipq40xx_generic_DEVICE_qcom_ap-dk04.1-c1 is not set

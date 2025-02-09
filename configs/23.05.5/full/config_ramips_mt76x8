@@ -1,0 +1,38 @@
+# firmware-utils use custom message: 
+# [mktplinkfw2] *** error: kernel image is too big
+# CONFIG_TARGET_DEVICE_ramips_mt76x8_DEVICE_tplink_tl-wr840n-v5 is not set
+# CONFIG_TARGET_DEVICE_ramips_mt76x8_DEVICE_tplink_tl-wr841n-v14 is not set
+
+# autodetected failures master-ow23.05.5-7345673-20250115-full
+# CONFIG_TARGET_DEVICE_ramips_mt76x8_DEVICE_alfa-network_awusfree1 is not set
+# CONFIG_TARGET_DEVICE_ramips_mt76x8_DEVICE_asus_rt-n10p-v3 is not set
+# CONFIG_TARGET_DEVICE_ramips_mt76x8_DEVICE_asus_rt-n11p-b1 is not set
+# CONFIG_TARGET_DEVICE_ramips_mt76x8_DEVICE_asus_rt-n12-vp-b1 is not set
+# CONFIG_TARGET_DEVICE_ramips_mt76x8_DEVICE_comfast_cf-wr617ac is not set
+# CONFIG_TARGET_DEVICE_ramips_mt76x8_DEVICE_comfast_cf-wr758ac-v1 is not set
+# CONFIG_TARGET_DEVICE_ramips_mt76x8_DEVICE_cudy_wr1000 is not set
+# CONFIG_TARGET_DEVICE_ramips_mt76x8_DEVICE_dlink_dap-1325-a1 is not set
+# CONFIG_TARGET_DEVICE_ramips_mt76x8_DEVICE_duzun_dm06 is not set
+# CONFIG_TARGET_DEVICE_ramips_mt76x8_DEVICE_glinet_vixmini is not set
+# CONFIG_TARGET_DEVICE_ramips_mt76x8_DEVICE_iptime_a3 is not set
+# CONFIG_TARGET_DEVICE_ramips_mt76x8_DEVICE_iptime_a604m is not set
+# CONFIG_TARGET_DEVICE_ramips_mt76x8_DEVICE_jotale_js76x8-8m is not set
+# CONFIG_TARGET_DEVICE_ramips_mt76x8_DEVICE_mediatek_mt7628an-eval-board is not set
+# CONFIG_TARGET_DEVICE_ramips_mt76x8_DEVICE_mercury_mac1200r-v2 is not set
+# CONFIG_TARGET_DEVICE_ramips_mt76x8_DEVICE_motorola_mwr03 is not set
+# CONFIG_TARGET_DEVICE_ramips_mt76x8_DEVICE_rakwireless_rak633 is not set
+# CONFIG_TARGET_DEVICE_ramips_mt76x8_DEVICE_totolink_a3 is not set
+# CONFIG_TARGET_DEVICE_ramips_mt76x8_DEVICE_totolink_lr1200 is not set
+# CONFIG_TARGET_DEVICE_ramips_mt76x8_DEVICE_tplink_re200-v2 is not set
+# CONFIG_TARGET_DEVICE_ramips_mt76x8_DEVICE_tplink_re200-v3 is not set
+# CONFIG_TARGET_DEVICE_ramips_mt76x8_DEVICE_tplink_re200-v4 is not set
+# CONFIG_TARGET_DEVICE_ramips_mt76x8_DEVICE_tplink_re220-v2 is not set
+# CONFIG_TARGET_DEVICE_ramips_mt76x8_DEVICE_tplink_re305-v3 is not set
+# CONFIG_TARGET_DEVICE_ramips_mt76x8_DEVICE_vocore_vocore2-lite is not set
+# CONFIG_TARGET_DEVICE_ramips_mt76x8_DEVICE_wavlink_wl-wn531a3 is not set
+# CONFIG_TARGET_DEVICE_ramips_mt76x8_DEVICE_wavlink_wl-wn570ha1 is not set
+# CONFIG_TARGET_DEVICE_ramips_mt76x8_DEVICE_wavlink_wl-wn575a3 is not set
+# CONFIG_TARGET_DEVICE_ramips_mt76x8_DEVICE_wavlink_wl-wn576a2 is not set
+# CONFIG_TARGET_DEVICE_ramips_mt76x8_DEVICE_wavlink_wl-wn577a2 is not set
+# CONFIG_TARGET_DEVICE_ramips_mt76x8_DEVICE_wavlink_wl-wn578a2 is not set
+# CONFIG_TARGET_DEVICE_ramips_mt76x8_DEVICE_zbtlink_zbt-we1226 is not set

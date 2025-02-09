@@ -1,0 +1,27 @@
+diff --git a/scripts/feeds b/scripts/feeds
+index aee73e7..aec2353 100755
+--- a/scripts/feeds
++++ b/scripts/feeds
+@@ -157,7 +157,7 @@ my %update_method = (
+ 	'src-git' => {
+ 		'init'          => "git clone --depth 1 '%s' '%s'",
+ 		'init_branch'   => "git clone --depth 1 --branch '%s' '%s' '%s'",
+-		'init_commit'   => "git clone '%s' '%s' && cd '%s' && git checkout -b '%s' '%s' && cd -",
++		'init_commit'   => "git clone --depth 1 '%s' '%s' && cd '%s' && git fetch --depth 1 origin '%s' && git reset --hard FETCH_HEAD",
+ 		'update'	=> "git pull --ff-only",
+ 		'update_force'	=> "git pull --ff-only || (git reset --hard HEAD; git pull --ff-only; exit 1)",
+ 		'post_update'	=> "git submodule update --init --recursive",
+@@ -213,7 +213,12 @@ sub update_feed_via($$$$$) {
+ 		if ($m->{'init_branch'} and $branch) {
+ 			system(sprintf($m->{'init_branch'}, $branch, $base_branch, $safepath)) == 0 or return 1;
+ 		} elsif ($m->{'init_commit'} and $commit) {
+-			system(sprintf($m->{'init_commit'}, $base_commit, $safepath, $safepath, $commit, $commit)) == 0 or return 1;
++			print "$type";
++			if ($type eq 'src-git') {
++				system(sprintf($m->{'init_commit'}, $base_commit, $safepath, $safepath, $commit)) == 0 or return 1;
++			} else {
++				system(sprintf($m->{'init_commit'}, $base_commit, $safepath, $safepath, $commit, $commit)) == 0 or return 1;
++			}
+ 		} else {
+ 			system(sprintf($m->{'init'}, $src, $safepath)) == 0 or return 1;
+ 		}

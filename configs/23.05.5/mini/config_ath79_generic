@@ -1,0 +1,14 @@
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_belkin_f9j1108-v2 is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_belkin_f9k1115-v2 is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_dlink_dap-1330-a1 is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_dlink_dap-1365-a1 is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_dlink_dch-g020-a1 is not set
+#
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_dlink_dir-825-b1 is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_nec_wg800hp is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_trendnet_tew-673gru is not set
+
+# autodetected failures master-ow23.05.5-7345673-20241231-mini
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_tplink_re355-v1 is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_tplink_re450-v1 is not set
+# CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_tplink_re450-v2 is not set

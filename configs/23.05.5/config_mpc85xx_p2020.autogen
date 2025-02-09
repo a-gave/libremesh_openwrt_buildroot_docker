@@ -1,0 +1,14 @@
+
+#
+# Target packages
+#
+#
+CONFIG_PACKAGE_wifi-unstuck-wa=y
+
+#
+# Profiles packages
+#
+# if a device selects a package (eg. kmod-ath10k)
+# ensure that it is compiled as module
+#
+#

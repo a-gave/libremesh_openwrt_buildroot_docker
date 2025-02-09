@@ -1,0 +1,23 @@
+
+#
+# Target packages
+#
+#
+
+#
+# Profiles packages
+#
+# if a device selects a package (eg. kmod-ath10k)
+# ensure that it is compiled as module
+#
+#
+CONFIG_TARGET_DEVICE_PACKAGES_lantiq_xway_DEVICE_arcadyan_arv7518pw="wifi-unstuck-wa"
+# 
+CONFIG_PACKAGE_wifi-unstuck-wa=m
+CONFIG_TARGET_DEVICE_PACKAGES_lantiq_xway_DEVICE_arcadyan_arv8539pw22="wifi-unstuck-wa"
+CONFIG_TARGET_DEVICE_PACKAGES_lantiq_xway_DEVICE_avm_fritz7312="wifi-unstuck-wa"
+CONFIG_TARGET_DEVICE_PACKAGES_lantiq_xway_DEVICE_avm_fritz7320="wifi-unstuck-wa"
+CONFIG_TARGET_DEVICE_PACKAGES_lantiq_xway_DEVICE_buffalo_wbmr-hp-g300h-a="wifi-unstuck-wa"
+CONFIG_TARGET_DEVICE_PACKAGES_lantiq_xway_DEVICE_buffalo_wbmr-hp-g300h-b="wifi-unstuck-wa"
+CONFIG_TARGET_DEVICE_PACKAGES_lantiq_xway_DEVICE_netgear_dgn3500="wifi-unstuck-wa"
+CONFIG_TARGET_DEVICE_PACKAGES_lantiq_xway_DEVICE_netgear_dgn3500b="wifi-unstuck-wa"

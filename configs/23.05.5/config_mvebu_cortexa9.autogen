@@ -1,0 +1,20 @@
+
+#
+# Target packages
+#
+#
+
+#
+# Profiles packages
+#
+# if a device selects a package (eg. kmod-ath10k)
+# ensure that it is compiled as module
+#
+#
+CONFIG_TARGET_DEVICE_PACKAGES_mvebu_cortexa9_DEVICE_cznic_turris-omnia="wifi-unstuck-wa -kmod-ath10k-ct -kmod-ath10k-ct-smallbuffers kmod-ath10k -ath10k-firmware-qca988x-ct ath10k-firmware-qca988x"
+# 
+CONFIG_PACKAGE_wifi-unstuck-wa=m
+# 
+CONFIG_PACKAGE_kmod-ath10k=m
+# 
+CONFIG_PACKAGE_ath10k-firmware-qca988x=m

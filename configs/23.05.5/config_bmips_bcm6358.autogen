@@ -1,0 +1,16 @@
+
+#
+# Target packages
+#
+#
+
+#
+# Profiles packages
+#
+# if a device selects a package (eg. kmod-ath10k)
+# ensure that it is compiled as module
+#
+#
+CONFIG_TARGET_DEVICE_PACKAGES_bmips_bcm6358_DEVICE_huawei_hg556a-b="wifi-unstuck-wa"
+# 
+CONFIG_PACKAGE_wifi-unstuck-wa=m

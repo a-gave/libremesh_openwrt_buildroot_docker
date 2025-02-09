@@ -1,0 +1,50 @@
+
+#
+# Target packages
+#
+#
+# CONFIG_PACKAGE_kmod-ath10k-ct is not set
+# CONFIG_PACKAGE_kmod-ath10k-ct-smallbuffers is not set
+CONFIG_PACKAGE_kmod-ath10k=y
+
+#
+# Profiles packages
+#
+# if a device selects a package (eg. kmod-ath10k)
+# ensure that it is compiled as module
+#
+#
+CONFIG_TARGET_DEVICE_PACKAGES_ipq806x_generic_DEVICE_arris_tr4400-v2="-ath10k-firmware-qca9984-ct ath10k-firmware-qca9984 -ath10k-firmware-qca99x0-ct ath10k-firmware-qca99x0"
+# 
+CONFIG_PACKAGE_ath10k-firmware-qca9984=m
+# 
+CONFIG_PACKAGE_ath10k-firmware-qca99x0=m
+CONFIG_TARGET_DEVICE_PACKAGES_ipq806x_generic_DEVICE_askey_rt4230w-rev6="-ath10k-firmware-qca9984-ct ath10k-firmware-qca9984"
+CONFIG_TARGET_DEVICE_PACKAGES_ipq806x_generic_DEVICE_asrock_g10="-ath10k-firmware-qca99x0-ct ath10k-firmware-qca99x0"
+CONFIG_TARGET_DEVICE_PACKAGES_ipq806x_generic_DEVICE_buffalo_wxr-2533dhp="-ath10k-firmware-qca99x0-ct ath10k-firmware-qca99x0"
+CONFIG_TARGET_DEVICE_PACKAGES_ipq806x_generic_DEVICE_edgecore_ecw5410="-ath10k-firmware-qca9984-ct ath10k-firmware-qca9984"
+CONFIG_TARGET_DEVICE_PACKAGES_ipq806x_generic_DEVICE_linksys_ea7500-v1="-ath10k-firmware-qca99x0-ct ath10k-firmware-qca99x0"
+CONFIG_TARGET_DEVICE_PACKAGES_ipq806x_generic_DEVICE_linksys_ea8500="-ath10k-firmware-qca99x0-ct ath10k-firmware-qca99x0"
+CONFIG_TARGET_DEVICE_PACKAGES_ipq806x_generic_DEVICE_meraki_mr42="-ath10k-firmware-qca9887-ct ath10k-firmware-qca9887 -ath10k-firmware-qca99x0-ct ath10k-firmware-qca99x0"
+# 
+CONFIG_PACKAGE_ath10k-firmware-qca9887=m
+CONFIG_TARGET_DEVICE_PACKAGES_ipq806x_generic_DEVICE_meraki_mr52="-ath10k-firmware-qca9887-ct ath10k-firmware-qca9887 -ath10k-firmware-qca9984-ct ath10k-firmware-qca9984"
+CONFIG_TARGET_DEVICE_PACKAGES_ipq806x_generic_DEVICE_nec_wg2600hp="-ath10k-firmware-qca99x0-ct ath10k-firmware-qca99x0"
+CONFIG_TARGET_DEVICE_PACKAGES_ipq806x_generic_DEVICE_nec_wg2600hp3="-ath10k-firmware-qca9984-ct ath10k-firmware-qca9984"
+CONFIG_TARGET_DEVICE_PACKAGES_ipq806x_generic_DEVICE_netgear_d7800="-ath10k-firmware-qca99x0-ct ath10k-firmware-qca99x0"
+CONFIG_TARGET_DEVICE_PACKAGES_ipq806x_generic_DEVICE_netgear_r7500="-ath10k-firmware-qca988x-ct ath10k-firmware-qca988x"
+# 
+CONFIG_PACKAGE_ath10k-firmware-qca988x=m
+CONFIG_TARGET_DEVICE_PACKAGES_ipq806x_generic_DEVICE_netgear_r7500v2="-ath10k-firmware-qca99x0-ct ath10k-firmware-qca99x0 -ath10k-firmware-qca988x-ct ath10k-firmware-qca988x"
+CONFIG_TARGET_DEVICE_PACKAGES_ipq806x_generic_DEVICE_netgear_r7800="-ath10k-firmware-qca9984-ct ath10k-firmware-qca9984"
+CONFIG_TARGET_DEVICE_PACKAGES_ipq806x_generic_DEVICE_netgear_xr500="-ath10k-firmware-qca9984-ct ath10k-firmware-qca9984"
+CONFIG_TARGET_DEVICE_PACKAGES_ipq806x_generic_DEVICE_nokia_ac400i="-ath10k-firmware-qca9984-ct ath10k-firmware-qca9984"
+CONFIG_TARGET_DEVICE_PACKAGES_ipq806x_generic_DEVICE_qcom_ipq8064-ap148="-ath10k-firmware-qca99x0-ct ath10k-firmware-qca99x0"
+CONFIG_TARGET_DEVICE_PACKAGES_ipq806x_generic_DEVICE_qcom_ipq8064-ap148-legacy="-ath10k-firmware-qca99x0-ct ath10k-firmware-qca99x0"
+CONFIG_TARGET_DEVICE_PACKAGES_ipq806x_generic_DEVICE_qcom_ipq8064-ap161="-ath10k-firmware-qca99x0-ct ath10k-firmware-qca99x0"
+CONFIG_TARGET_DEVICE_PACKAGES_ipq806x_generic_DEVICE_qcom_ipq8064-db149="-ath10k-firmware-qca99x0-ct ath10k-firmware-qca99x0"
+CONFIG_TARGET_DEVICE_PACKAGES_ipq806x_generic_DEVICE_tplink_ad7200="-ath10k-firmware-qca99x0-ct ath10k-firmware-qca99x0"
+CONFIG_TARGET_DEVICE_PACKAGES_ipq806x_generic_DEVICE_tplink_c2600="-ath10k-firmware-qca99x0-ct ath10k-firmware-qca99x0"
+CONFIG_TARGET_DEVICE_PACKAGES_ipq806x_generic_DEVICE_tplink_vr2600v="-ath10k-firmware-qca99x0-ct ath10k-firmware-qca99x0"
+CONFIG_TARGET_DEVICE_PACKAGES_ipq806x_generic_DEVICE_ubnt_unifi-ac-hd="-ath10k-firmware-qca9984-ct ath10k-firmware-qca9984"
+CONFIG_TARGET_DEVICE_PACKAGES_ipq806x_generic_DEVICE_zyxel_nbg6817="-ath10k-firmware-qca9984-ct ath10k-firmware-qca9984"

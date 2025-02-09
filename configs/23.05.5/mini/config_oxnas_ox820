@@ -1,0 +1,2 @@
+# release-hack test
+CONFIG_PACKAGE_kmod-thermal=y

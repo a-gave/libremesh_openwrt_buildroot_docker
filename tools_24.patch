@@ -1,0 +1,62 @@
+commit 132e1977aca7afe633973c20eb8e8ffb2a72dcf8
+Author: Samuele Longhi <agave@dracaena.it>
+Date:   Mon Jan 13 17:23:17 2025 +0100
+
+    tools: add an explicit option CONFIG_EXTERNAL_TOOLS to skip recompilation
+    
+    This introduces the option CONFIG_EXTERNAL_TOOLS (default n),
+    which is a flag useful to be sure to avoid recompiling host tools,
+    when they are downloaded as prebuilt, for example in this cases:
+    - tools are extracted and copied from an openwrt-sdk corresponding to a specific target/subtarget
+    - tools are extracted from an image in the github docker registry, i.e. `ghcr.io/openwrt/tools:openwrt-23.05`
+    
+    The flag can be manually set using menuconfig, and it is added by default by the script
+    `scripts/ext-tools --tools tools.tar.gz` when installing precompiled tools from an archive
+    
+    Signed-off-by: Samuele Longhi <agave@dracaena.it>
+
+diff --git a/config/Config-devel.in b/config/Config-devel.in
+index cbac91c09d..4d338ea26b 100644
+--- a/config/Config-devel.in
++++ b/config/Config-devel.in
+@@ -62,6 +62,12 @@ menuconfig DEVEL
+ 		  Compile all host host tools even if not needed. This is needed to prepare a
+ 		  universal precompiled host tools archive to use in another buildroot.
+ 
++	config EXTERNAL_TOOLS
++		bool "Use external tools" if DEVEL
++		help
++		  If enabled, the buildroot will compile using prebuilt tools instead of
++		  compiling them.
++
+ 	config BUILD_SUFFIX
+ 		string "Build suffix to append to the target BUILD_DIR variable" if DEVEL
+ 		default ""
+diff --git a/scripts/ext-tools.sh b/scripts/ext-tools.sh
+index b58296be10..35910a68be 100755
+--- a/scripts/ext-tools.sh
++++ b/scripts/ext-tools.sh
+@@ -36,6 +36,9 @@ install_prebuilt_tools() {
+ 
+ 	refresh_prebuilt_tools
+ 
++	echo "CONFIG_DEVEL=y" >> .config
++	echo "CONFIG_EXTERNAL_TOOLS=y" >> .config && make defconfig
++
+ 	return 0
+ }
+ 
+diff --git a/tools/Makefile b/tools/Makefile
+index b16c5d9c5b..6401f54f3e 100644
+--- a/tools/Makefile
++++ b/tools/Makefile
+@@ -224,6 +224,8 @@ $(curdir)/ := .config prereq
+ $(curdir)/install: $(curdir)/compile
+ 
+ tools_enabled = $(foreach tool,$(sort $(tools-y) $(tools-)),$(if $(filter $(tool),$(tools-y)),y,n))
++ifeq ($(CONFIG_EXTERNAL_TOOLS),)
+ $(eval $(call stampfile,$(curdir),tools,compile,,_$(subst $(space),,$(tools_enabled)),$(STAGING_DIR_HOST)))
++endif
+ $(eval $(call stampfile,$(curdir),tools,check,$(TMP_DIR)/.build,,$(STAGING_DIR_HOST)))
+ $(eval $(call subdir,$(curdir)))
+

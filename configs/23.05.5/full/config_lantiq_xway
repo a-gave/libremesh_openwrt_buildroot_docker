@@ -1,0 +1,13 @@
+# autodetected failures master-ow23.05.5-7345673-20250115-full
+# CONFIG_TARGET_DEVICE_lantiq_xway_DEVICE_arcadyan_arv4519pw is not set
+# CONFIG_TARGET_DEVICE_lantiq_xway_DEVICE_arcadyan_arv7506pw11 is not set
+# CONFIG_TARGET_DEVICE_lantiq_xway_DEVICE_arcadyan_arv7518pw is not set
+# CONFIG_TARGET_DEVICE_lantiq_xway_DEVICE_arcadyan_arv7525pw is not set
+# CONFIG_TARGET_DEVICE_lantiq_xway_DEVICE_arcadyan_arv752dpw is not set
+# CONFIG_TARGET_DEVICE_lantiq_xway_DEVICE_arcadyan_arv752dpw22 is not set
+# CONFIG_TARGET_DEVICE_lantiq_xway_DEVICE_arcadyan_arv8539pw22 is not set
+# CONFIG_TARGET_DEVICE_lantiq_xway_DEVICE_bt_homehub-v2b is not set
+# CONFIG_TARGET_DEVICE_lantiq_xway_DEVICE_bt_homehub-v3a is not set
+# CONFIG_TARGET_DEVICE_lantiq_xway_DEVICE_lantiq_easy50712 is not set
+# CONFIG_TARGET_DEVICE_lantiq_xway_DEVICE_siemens_gigaset-sx76x is not set
+# CONFIG_TARGET_DEVICE_lantiq_xway_DEVICE_zte_h201l is not set

@@ -1,0 +1,7 @@
+# firmware-utils use custom message:
+# WARNING: maxlen exceeds default maximum!  Beware of overwriting nvram!
+# fread failure or file "/builder/build_dir/target-mipsel_24kc_musl/linux-ramips_mt7621/root.squashfs+pkg=5eaa262c" too large
+# CONFIG_TARGET_DEVICE_ramips_mt7621_DEVICE_buffalo_wsr-2533dhpl is not set
+
+# autodetected failures master-ow23.05.5-7345673-20250115-full
+# CONFIG_TARGET_DEVICE_ramips_mt7621_DEVICE_elecom_wrc-2533ghbk-i is not set

@@ -1,0 +1,6 @@
+# autodetected failures master-ow23.05.5-7345673-20250115-mini
+# CONFIG_TARGET_DEVICE_lantiq_xway_DEVICE_arcadyan_arv4519pw is not set
+# CONFIG_TARGET_DEVICE_lantiq_xway_DEVICE_arcadyan_arv7525pw is not set
+# CONFIG_TARGET_DEVICE_lantiq_xway_DEVICE_bt_homehub-v2b is not set
+# CONFIG_TARGET_DEVICE_lantiq_xway_DEVICE_bt_homehub-v3a is not set
+# CONFIG_TARGET_DEVICE_lantiq_xway_DEVICE_lantiq_easy50712 is not set

@@ -1,0 +1,51 @@
+# firmware-utils use custom message:
+# [mkdniimg] *** error: stat failed
+# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_netgear_ex2700 is not set
+# [mkporayfw] *** error: stat failed 
+# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_nexx_wt3020-4m is not set
+
+# autodetected failures master-ow23.05.5-7345673-20250115-full
+# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_aigale_ai-br100 is not set
+# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_ampedwireless_b1200ex is not set
+# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_asus_rp-n53 is not set
+# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_buffalo_whr-300hp2 is not set
+# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_buffalo_whr-600d is not set
+# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_buffalo_wmr-300 is not set
+# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_comfast_cf-wr800n is not set
+# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_dlink_dir-806a-b1 is not set
+# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_dovado_tiny-ac is not set
+# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_edimax_br-6478ac-v2 is not set
+# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_edimax_ew-7476rpc is not set
+# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_edimax_ew-7478ac is not set
+# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_edimax_ew-7478apc is not set
+# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_humax_e2 is not set
+# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_iptime_a104ns is not set
+# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_lb-link_bl-w1200 is not set
+# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_linksys_e1700 is not set
+# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_netgear_ex3700 is not set
+# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_netgear_ex6120 is not set
+# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_netgear_ex6130 is not set
+# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_netgear_wn3000rp-v3 is not set
+# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_netgear_wn3100rp-v2 is not set
+# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_nexx_wt3020-8m is not set
+# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_phicomm_k2-v22.4 is not set
+# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_phicomm_psg1208 is not set
+# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_phicomm_psg1218b is not set
+# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_planex_db-wrt01 is not set
+# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_planex_mzk-750dhp is not set
+# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_ralink_mt7620a-evb is not set
+# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_ralink_mt7620a-mt7530-evb is not set
+# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_ralink_mt7620a-mt7610e-evb is not set
+# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_rostelecom_rt-fl-1 is not set
+# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_rostelecom_s1010 is not set
+# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_sitecom_wlr-4100-v1-002 is not set
+# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_tplink_re200-v1 is not set
+# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_tplink_re210-v1 is not set
+# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_wavlink_wl-wn530hg4 is not set
+# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_wavlink_wl-wn579x3 is not set
+# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_yukai_bocco is not set
+# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_zbtlink_zbt-wr8305rt is not set
+# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_zte_q7 is not set
+# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_zyxel_keenetic-lite-iii-a is not set
+# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_zyxel_keenetic-omni is not set
+# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_zyxel_keenetic-omni-ii is not set

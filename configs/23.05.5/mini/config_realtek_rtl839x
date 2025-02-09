@@ -1,0 +1,3 @@
+# autodetected failures master-ow23.05.5-7345673-20250115-mini
+# CONFIG_TARGET_DEVICE_realtek_rtl839x_DEVICE_netgear_gs750e is not set
+# CONFIG_TARGET_DEVICE_realtek_rtl839x_DEVICE_zyxel_gs1900-48 is not set

@@ -1,0 +1,16 @@
+# firmware-utils use custom message:
+# WARNING: maxlen exceeds default maximum!  Beware of overwriting nvram!
+# fread failure or file "/builder/build_dir/target-mipsel_24kc_musl/linux-ramips_mt7621/root.squashfs+pkg=5eaa262c" too large
+# CONFIG_TARGET_DEVICE_ramips_mt7621_DEVICE_buffalo_wsr-2533dhpl is not set
+
+# autodetected failures master-ow23.05.5-7345673-20241231-default
+# CONFIG_TARGET_DEVICE_ramips_mt7621_DEVICE_elecom_wrc-2533ghbk2-t is not set
+# CONFIG_TARGET_DEVICE_ramips_mt7621_DEVICE_iodata_wn-ax1167gr is not set
+# CONFIG_TARGET_DEVICE_ramips_mt7621_DEVICE_iodata_wn-gx300gr is not set
+# CONFIG_TARGET_DEVICE_ramips_mt7621_DEVICE_linksys_re6500 is not set
+# CONFIG_TARGET_DEVICE_ramips_mt7621_DEVICE_mediatek_ap-mt7621a-v60 is not set
+# CONFIG_TARGET_DEVICE_ramips_mt7621_DEVICE_storylink_sap-g3200u3 is not set
+# CONFIG_TARGET_DEVICE_ramips_mt7621_DEVICE_tplink_re350-v1 is not set
+# CONFIG_TARGET_DEVICE_ramips_mt7621_DEVICE_tplink_re650-v2 is not set
+# CONFIG_TARGET_DEVICE_ramips_mt7621_DEVICE_tplink_tl-wpa8631p-v3 is not set
+# CONFIG_TARGET_DEVICE_ramips_mt7621_DEVICE_winstars_ws-wn583a6 is not set

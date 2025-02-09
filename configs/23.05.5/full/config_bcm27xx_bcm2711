@@ -1,0 +1,4 @@
+# release-hack test
+# https://github.com/openwrt/openwrt/issues/10370 
+CONFIG_PACKAGE_kmod-of-mdio=y
+
