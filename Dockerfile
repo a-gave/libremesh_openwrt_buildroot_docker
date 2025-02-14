@@ -109,7 +109,7 @@ RUN echo "\n\
 \nCONFIG_TARGET_${TARGET}_${SUBTARGET}=y" >> .config \
   && make defconfig \
   && make -j1 toolchain/compile \
-  && find build_dir/toolchain* ! -name '.built*' -type f -exec rm -f {} + \
+  && find build_dir/toolchain* ! -name '.built*' ! -name '.configured*' ! -name '.prepared*' -type f -exec rm -f {} + \
   && find build_dir/toolchain* -type d -empty -delete
 
 RUN rm .config \
